@@ -22,4 +22,5 @@
     <string name="max_power">Max Power:</string>
     <string name="max_weight">Max Weight:</string>
     <string name="hover">Hover:</string>
+    <string name="reset">RESET</string>
 </resources>

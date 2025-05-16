@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var textViewMaxWeight: TextView
     private lateinit var textViewHover: TextView
     private lateinit var buttonCalculate: Button
+    private lateinit var buttonReset: Button
 
     private val DEFAULTQNH = 1013.0
     private val DEFAULTELEVATION = 0.0
@@ -41,10 +42,13 @@ class MainActivity : AppCompatActivity() {
         textViewHover = findViewById(R.id.textViewHover)
         editTextWeight = findViewById(R.id.editTextWeight)
         buttonCalculate = findViewById(R.id.buttonCalculate)
-
+        buttonReset = findViewById(R.id.buttonReset)
         buttonCalculate.setOnClickListener {
             calculateAndDisplay()
 
+        }
+        buttonReset.setOnClickListener {
+            clearInputs()
         }
 
     }
@@ -66,20 +70,20 @@ class MainActivity : AppCompatActivity() {
 
         val powerToHover = givenWeight * (1013.0 / qnh) * ((temperature + 273.0) / 288.0) * (1/ 6600.0)
 
-        textViewPressureAltitude.text = "Pressure Altitude: %.2f ft".format(pressureAltitude)
-        textViewDensityAltitude.text = "Density Altitude: %.2f ft".format(densityAltitude)
-        textViewMaxPower.text = "Max Power Available: %.2f".format(maxPowerAvailable)
+        textViewPressureAltitude.text = "%.2f ft".format(pressureAltitude)
+        textViewDensityAltitude.text = "%.2f ft".format(densityAltitude)
+        textViewMaxPower.text = "%.2f".format(maxPowerAvailable)
         //textViewMaxWeight.text = "Max Weight: %.2f lbs".format(maxWeight)
         //textViewHover.text = "Power to Hover: %.2f ".format(powerToHover)
         if (maxWeight < givenWeight) {
-            textViewMaxWeight.text = "Max Weight (%.2f) < Current Weight (%.2f) --- NOT POSSIBLE".format(maxWeight, givenWeight)
+            textViewMaxWeight.text = " %.2f lbs - NOT POSSIBLE".format(maxWeight, givenWeight)
         } else {
             textViewMaxWeight.text = "Max Weight: %.2f lbs".format(maxWeight)
         }
 
         // Check 2: Power to Hover exceeds Max Power Available
         if (powerToHover > maxPowerAvailable) {
-            textViewHover.text = "Power to Hover (%.2f) > Max Power (%.2f) --- NOT POSSIBLE".format(powerToHover, maxPowerAvailable)
+            textViewHover.text = "%.2f - NOT POSSIBLE".format(powerToHover, maxPowerAvailable)
         } else {
             textViewHover.text = "Power to Hover: %.2f".format(powerToHover)
         }
@@ -89,6 +93,7 @@ class MainActivity : AppCompatActivity() {
         editTextElevation.text.clear()
         editTextTemperature.text.clear()
         editTextWeight.text.clear()
+
     }
 
 }
