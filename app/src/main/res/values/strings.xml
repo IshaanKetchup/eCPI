@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PAT</string>
+    <string name="atmospheric_pressure_hpa">Atmospheric Pressure (hPa)</string>
+    <string name="altitude_m">Altitude (m)</string>
+    <string name="temperature_c">Temperature (°C)</string>
+    <string name="display_values">Display Values</string>
+    <string name="enter_pressure_altitude_ft">Enter Pressure Altitude (ft)</string>
+    <string name="enter_temperature_c">Enter Temperature (°C)</string>
+    <string name="density_altitude">Density Altitude:</string>
+    <string name="max_power_available">Max Power Available:</string>
+    <string name="enter_elevation_ft">Enter Elevation (ft)</string>
+    <string name="enter_qnh_hpa">Enter QNH (hPa)</string>
+    <string name="enter_weight_lbs">Enter Weight (lbs)</string>
+    <string name="calculate">Calculate</string>
+    <string name="elevation_ft">Elevation (ft)</string>
+    <string name="qnh_hpa">QNH (hPa)</string>
+</resources>
