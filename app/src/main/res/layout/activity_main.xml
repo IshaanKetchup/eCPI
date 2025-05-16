@@ -1,118 +1,162 @@
-<RelativeLayout
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="24dp"
-    android:gravity="center"
-    android:background="#636B2F"
-    >
+    android:gravity="center_vertical"
+    android:background="#636B2F">
 
-    <EditText
-        android:id="@+id/editTextQNH"
+    <!-- QNH Input -->
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_qnh_hpa"
-        android:inputType="numberDecimal"
-        android:gravity="center"
-        android:padding="12dp"
-        android:background="@drawable/rounded_edittext"/>
+        android:layout_marginBottom="16dp"
+        android:hint="@string/enter_qnh"
+        app:hintAnimationEnabled="false"
+        app:boxBackgroundMode="filled"
+        app:boxBackgroundColor="@android:color/white"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextQNH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-    <EditText
-        android:id="@+id/editTextElevation"
+            android:inputType="numberDecimal"
+            android:gravity="center"
+            android:textColor="#000000"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Elevation Input -->
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_elevation_ft"
-        android:inputType="numberDecimal"
-        android:layout_below="@+id/editTextQNH"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:padding="12dp"
-        android:background="@drawable/rounded_edittext"/>
+        android:layout_marginBottom="16dp"
+        android:hint="@string/enter_elevation"
+        app:boxBackgroundMode="filled"
+        app:boxBackgroundColor="@android:color/white"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextElevation"
 
-    <EditText
-        android:id="@+id/editTextTemperature"
+            android:inputType="numberDecimal"
+            android:gravity="center"
+            android:textColor="#000000"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Temperature Input -->
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_temperature_c"
-        android:inputType="numberDecimal|numberSigned"
-        android:layout_below="@id/editTextElevation"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:padding="12dp"
-        android:background="@drawable/rounded_edittext"/>
+        android:layout_marginBottom="16dp"
+        android:hint="@string/enter_temperature"
+        app:boxBackgroundMode="filled"
+        app:boxBackgroundColor="@android:color/white"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp">
 
-    <EditText
-        android:id="@+id/editTextWeight"
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/editTextTemperature"
+            android:layout_height="wrap_content"
+
+            android:inputType="numberDecimal|numberSigned"
+            android:gravity="center"
+            android:textColor="#000000"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Weight Input -->
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_weight_lbs"
-        android:inputType="numberDecimal|numberSigned"
-        android:layout_below="@id/editTextTemperature"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:padding="12dp"
-        android:background="@drawable/rounded_edittext"/>
+        android:layout_marginBottom="24dp"
+        android:hint="@string/enter_weight"
+        app:boxBackgroundMode="filled"
+        app:boxBackgroundColor="@android:color/white"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
+            android:id="@+id/editTextWeight"
+            android:inputType="numberDecimal"
+            android:gravity="center"
+            android:textColor="#000000"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textViewPressureAltitude"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonCalculate"
-        android:layout_marginTop="42dp"
-        android:textSize="24sp"
-        android:textColor="@color/white"
-        />
-
-    <TextView
-        android:id="@+id/textViewDensityAltitude"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textViewPressureAltitude"
-        android:textSize="24sp"
-        android:textColor="@color/white"
-        />
-
-    <TextView
-        android:id="@+id/textViewMaxPower"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textViewDensityAltitude"
-        android:textSize="24sp"
-        android:textColor="@color/white"
-        />
-
-    <TextView
-        android:id="@+id/textViewMaxWeight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textViewMaxPower"
-        android:textSize="24sp"
-        android:textColor="@color/white"
-        />
-
-    <TextView
-        android:id="@+id/textViewHover"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textViewMaxWeight"
-        android:textSize="24sp"
-        android:textColor="@color/white" />
-
+    <!-- Calculate Button -->
     <Button
         android:id="@+id/buttonCalculate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/calculate"
-        android:layout_below="@id/editTextWeight"
-        android:layout_marginTop="24dp"
-        android:padding="12dp"
-        android:textSize="18sp"
         android:background="@color/purple_500"
         android:textColor="@android:color/white"
-        />
+        android:padding="12dp"
+        android:textSize="18sp"
+        android:layout_marginBottom="24dp" />
 
-</RelativeLayout>
+    <!-- Result TextViews -->
+    <TextView
+        android:id="@+id/textViewPressureAltitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pressure_altitude"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textViewDensityAltitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/density_altitude"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textViewMaxPower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/max_power"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textViewMaxWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/max_weight"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textViewHover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hover"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+</LinearLayout>

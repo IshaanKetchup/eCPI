@@ -14,4 +14,12 @@
     <string name="calculate">Calculate</string>
     <string name="elevation_ft">Elevation (ft)</string>
     <string name="qnh_hpa">QNH (hPa)</string>
+    <string name="enter_qnh">Enter QNH</string>
+    <string name="enter_elevation">Enter Elevation</string>
+    <string name="enter_temperature">Enter Temperature</string>
+    <string name="enter_weight">Enter Weight</string>
+    <string name="pressure_altitude">Pressure Altitude:</string>
+    <string name="max_power">Max Power:</string>
+    <string name="max_weight">Max Weight:</string>
+    <string name="hover">Hover:</string>
 </resources>
