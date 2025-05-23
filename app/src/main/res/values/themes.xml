@@ -1,5 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme -->
+    <style name="Base.Theme.PAT" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/md_theme_light_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+    </style>
+    <style name="NavMenuItemTextStyle" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">18sp</item> <!-- Or 20sp, as you like -->
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+    <style name="Widget.Material3.Toolbar.Primary" parent="Widget.Material3.Toolbar">
+        <item name="android:background">#000CB3</item>
+        <item name="titleTextColor">?attr/colorOnPrimaryContainer</item>
+        <item name="subtitleTextColor">?attr/colorOnPrimaryContainer</item>
+    </style>
 
-    <style name="Theme.PAT" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
+    <style name="ShapeAppearance.MyApp.Button" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item>
+    </style>
+    <style name="Widget.MyApp.Button" parent="Widget.Material3.Button">
+        <item name="shapeAppearance">@style/ShapeAppearance.MyApp.Button</item>
+        <item name="shapeAppearanceOverlay">@null</item>
+
+    </style>
+
+    <style name="ThemeOverlay.Material3.Dark" parent="">
+        <item name="colorPrimary">@color/md_theme_dark_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_dark_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_dark_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_dark_onPrimaryContainer</item>
+    </style>
+
+    <style name="Theme.PAT" parent="Base.Theme.PAT" />
 </resources>

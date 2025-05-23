@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -15,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
+        <!-- Toolbar -->
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -23,7 +24,6 @@
             android:background="?attr/colorPrimaryContainer"
             android:elevation="4dp"
             app:navigationIcon="@drawable/ic_menu_24dp"
-            app:titleTextColor="?attr/colorOnPrimaryContainer"
             app:menu="@menu/toolbar_menu">
 
             <LinearLayout
@@ -36,7 +36,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cheetah eCPI"
+                    android:text="Chetak eCPI"
                     android:layout_marginStart="8dp"
                     android:textColor="@android:color/white"
                     android:textSize="25sp"
@@ -46,7 +46,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/cheetahimage"
+                    android:src="@drawable/chetakimage"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter" />
 
@@ -54,10 +54,7 @@
 
         </com.google.android.material.appbar.MaterialToolbar>
 
-
-
-
-        <!-- Content area with modern Material 3 card layout -->
+        <!-- Your provided layout below toolbar -->
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -133,8 +130,8 @@
                                 android:layout_marginEnd="8dp">
 
                                 <com.google.android.material.textfield.TextInputLayout
-                                    android:id="@+id/textInputElevation"
                                     android:layout_width="match_parent"
+                                    android:id="@+id/textInputElevation"
                                     android:layout_height="wrap_content"
                                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                                     android:hint="Elevation (ft)"
@@ -144,7 +141,7 @@
                                         android:id="@+id/editTextElevation"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:inputType="numberDecimal|numberSigned"
+                                        android:inputType="numberDecimal"
                                         />
                                 </com.google.android.material.textfield.TextInputLayout>
                             </LinearLayout>
@@ -157,8 +154,8 @@
                                 android:orientation="vertical">
 
                                 <com.google.android.material.textfield.TextInputLayout
-                                    android:id="@+id/textInputPressureAltitude"
                                     android:layout_width="match_parent"
+                                    android:id="@+id/textInputPressureAltitude"
                                     android:layout_height="wrap_content"
                                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                                     android:hint="Pressure Alt (ft)"
@@ -218,7 +215,6 @@
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:layout_width="match_parent"
                                     android:id="@+id/textInputWeight"
-
                                     android:layout_height="wrap_content"
                                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                                     android:hint="Weight (lbs)"
@@ -232,8 +228,8 @@
                                         />
                                 </com.google.android.material.textfield.TextInputLayout>
                             </LinearLayout>
-
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -305,7 +301,10 @@
 
                         </LinearLayout>
 
+
                     </LinearLayout>
+
+
                 </com.google.android.material.card.MaterialCardView>
 
                 <!-- Action buttons -->
@@ -339,7 +338,6 @@
                         app:iconTint="@color/white"
                         app:iconGravity="textStart"
                         app:iconPadding="8dp"/>
-
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/buttonClear"
                         style="@style/Widget.MyApp.Button"
@@ -365,6 +363,7 @@
                         android:id="@+id/buttonCalculate"
                         style="@style/Widget.MyApp.Button"
                         android:backgroundTint="@color/green"
+
                         android:layout_width="0dp"
                         android:layout_height="48dp"
                         android:layout_weight="2.5"
@@ -478,7 +477,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Max Power (Hvr/Lvl/Clmb)"
+                                    android:text="Max Power (Hvr/Lvl)"
                                     android:textAppearance="@style/TextAppearance.Material3.LabelMedium"/>
 
                                 <com.google.android.material.textview.MaterialTextView
@@ -521,31 +520,62 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="8dp"
+                            android:weightSum="2">
 
-                            <TextView
-                                android:layout_width="match_parent"
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
-                                android:text="Hover Power"
-                                android:textAppearance="@style/TextAppearance.Material3.LabelMedium"/>
+                                android:orientation="vertical"
+                                android:layout_marginEnd="8dp">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Max Power (Climb):"
+                                    android:textAppearance="@style/TextAppearance.Material3.LabelMedium"/>
 
-                            <com.google.android.material.textview.MaterialTextView
-                                android:id="@+id/textViewHover"
-                                android:layout_width="match_parent"
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/textViewClimb"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:padding="12dp"
+                                    android:background="@drawable/m3_outlined_background"
+                                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                                    android:gravity="center"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:padding="12dp"
-                                android:background="@drawable/m3_outlined_background"
-                                android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-                                android:gravity="center"/>
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Hover Power:"
+                                    android:textAppearance="@style/TextAppearance.Material3.LabelMedium"/>
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/textViewHover"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:padding="12dp"
+                                    android:background="@drawable/m3_outlined_background"
+                                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                                    android:gravity="center"/>
+                            </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
+
     </LinearLayout>
 
-    <!-- Modern Navigation Drawer -->
+    <!-- Navigation Drawer -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
@@ -559,4 +589,5 @@
         app:itemTextColor="?attr/colorOnSurfaceVariant"
         app:itemShapeAppearanceOverlay="@style/ShapeAppearance.Material3.MediumComponent"
         style="@style/Widget.Material3.NavigationView"/>
+
 </androidx.drawerlayout.widget.DrawerLayout>

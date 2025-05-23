@@ -5,15 +5,15 @@ plugins {
 }
 
 android {
-    namespace = "com.example.pat"
+    namespace = "com.IshaanKetchup.pat"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.pat"
+        applicationId = "com.IshaanKetchup.pat"
         minSdk = 21
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 5
+        versionName = "1.21"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -51,6 +51,8 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
