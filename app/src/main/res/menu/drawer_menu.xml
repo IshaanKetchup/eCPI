@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_first_activity"
+            android:title="Cheetah eCPI"/>
+        <item
+            android:id="@+id/nav_second_activity"
+            android:title="Chetak eCPI"/>
+    </group>
+</menu>

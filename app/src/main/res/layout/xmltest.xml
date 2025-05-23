@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="?attr/colorSurface">
+
+    <!-- Main content area -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimaryContainer"
+            android:elevation="4dp"
+            app:navigationIcon="@drawable/ic_menu_24dp"
+            app:titleTextColor="?attr/colorOnPrimaryContainer"
+            app:menu="@menu/toolbar_menu">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cheetah eCPI"
+                    android:layout_marginStart="8dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/cheetahimage"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter" />
+
+            </LinearLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+
+
+
+        <!-- Content area with modern Material 3 card layout -->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:clipToPadding="false"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Input cards section -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardElevation="2dp"
+                    app:shapeAppearance="@style/ShapeAppearance.Material3.MediumComponent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Flight Parameters"
+                            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                            android:layout_marginBottom="16dp"/>
+
+                        <!-- QNH + Elevation + Pressure Altitude row -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="16dp"
+                            android:weightSum="3">
+
+                            <!-- QNH -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginEnd="8dp">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/textInputLayoutQNH"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                                    android:hint="QNH (mb)"
+                                    app:startIconDrawable="@drawable/ic_gauge_24dp">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/editTextQNH"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="numberDecimal"
+                                        />
+                                </com.google.android.material.textfield.TextInputLayout>
+                            </LinearLayout>
+
+                            <!-- Elevation -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginEnd="8dp">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/textInputElevation"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                                    android:hint="Elevation (ft)"
+                                    app:startIconDrawable="@drawable/ic_terrain_24dp">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/editTextElevation"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="numberDecimal|numberSigned"
+                                        />
+                                </com.google.android.material.textfield.TextInputLayout>
+                            </LinearLayout>
+
+                            <!-- Pressure Altitude -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/textInputPressureAltitude"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                                    android:hint="Pressure Alt (ft)"
+                                    app:startIconDrawable="@drawable/ic_altitude_24dp">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/editTextPressureAltitude"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="numberDecimal"
+                                        android:text="0.0"
+                                        />
+                                </com.google.android.material.textfield.TextInputLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Temperature + Weight row -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <!-- Temperature -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginEnd="8dp">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:id="@+id/textInputTemperature"
+                                    android:layout_height="wrap_content"
+                                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                                    android:hint="Temperature (°C)"
+                                    app:startIconDrawable="@drawable/ic_thermostat_24dp">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/editTextTemperature"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="numberDecimal|numberSigned"
+                                        android:text="25.0"
+                                        />
+                                </com.google.android.material.textfield.TextInputLayout>
+                            </LinearLayout>
+
+                            <!-- Weight -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:id="@+id/textInputWeight"
+
+                                    android:layout_height="wrap_content"
+                                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                                    android:hint="Weight (lbs)"
+                                    app:startIconDrawable="@drawable/ic_weight_24dp">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/editTextWeight"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="numberDecimal"
+                                        />
+                                </com.google.android.material.textfield.TextInputLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="bottom"
+                            android:padding="8dp"
+                            android:weightSum="4">
+
+                            <!-- AUW Label -->
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="AUW @"
+                                android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                                android:layout_gravity="bottom" />
+
+                            <!-- Power Input -->
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                                android:layout_gravity="bottom">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/editTextPower"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="0.90"
+                                    android:inputType="numberDecimal|numberSigned" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <!-- CPI Label -->
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="CPI"
+                                android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                                android:layout_gravity="bottom" />
+
+                            <!-- Weight Output -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_marginStart="8dp"
+                                android:layout_gravity="bottom">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Weight"
+                                    android:textAppearance="@style/TextAppearance.Material3.LabelMedium" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/textViewWeight"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:padding="12dp"
+                                    android:background="@drawable/m3_outlined_background"
+                                    android:text=""
+                                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                                    android:gravity="center" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Action buttons -->
+                <!-- Action buttons with proper alignment -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp"
+                    android:baselineAligned="false"
+                    android:gravity="center_vertical">
+
+                    <!-- Reset Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonReset"
+                        style="@style/Widget.MyApp.Button"
+                        android:backgroundTint="#FF0000"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1.5"
+                        android:layout_marginEnd="8dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:text="@string/reset"
+                        android:textAllCaps="false"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        app:icon="@drawable/ic_reset_24dp"
+                        app:iconTint="@color/white"
+                        app:iconGravity="textStart"
+                        app:iconPadding="8dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonClear"
+                        style="@style/Widget.MyApp.Button"
+                        android:backgroundTint="#FFFFFF"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="0.75"
+                        android:layout_marginEnd="8dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:textAllCaps="false"
+                        android:singleLine="true"
+                        android:text="@string/clear"
+                        android:ellipsize="end"
+                        app:icon="@drawable/ic_cross_24dp"
+                        app:iconTint="@color/black"
+                        app:iconGravity="textStart"
+                        app:iconPadding="8dp"/>
+                    <!-- Calculate Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonCalculate"
+                        style="@style/Widget.MyApp.Button"
+                        android:backgroundTint="@color/green"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="2.5"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:text="@string/calculate"
+                        android:textAllCaps="false"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        app:icon="@drawable/ic_calculate_24dp"
+                        app:iconGravity="textStart"
+                        app:iconPadding="8dp"/>
+                </LinearLayout>
+
+                <!-- Results cards -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardElevation="2dp"
+                    app:shapeAppearance="@style/ShapeAppearance.Material3.MediumComponent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Performance Results"
+                            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                            android:layout_marginBottom="16dp"/>
+
+                        <!-- First row of results -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="8dp"
+                            android:weightSum="2">
+
+                            <!-- Cruise Power -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginEnd="8dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Cruise Power"
+                                    android:textAppearance="@style/TextAppearance.Material3.LabelMedium"/>
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/textViewCruisePower"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:padding="12dp"
+                                    android:background="@drawable/m3_outlined_background"
+                                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                                    android:gravity="center"/>
+                            </LinearLayout>
+
+                            <!-- Density Altitude -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Density Altitude"
+                                    android:textAppearance="@style/TextAppearance.Material3.LabelMedium"/>
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/textViewDensityAltitude"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:padding="12dp"
+                                    android:background="@drawable/m3_outlined_background"
+                                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                                    android:gravity="center"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Second row of results -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="8dp"
+                            android:weightSum="2">
+
+                            <!-- Max Power -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginEnd="8dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Max Power (Hvr/Lvl/Clmb)"
+                                    android:textAppearance="@style/TextAppearance.Material3.LabelMedium"/>
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/textViewMaxPower"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:padding="12dp"
+                                    android:background="@drawable/m3_outlined_background"
+                                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                                    android:gravity="center"/>
+                            </LinearLayout>
+
+                            <!-- Max Weight -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Max Weight"
+                                    android:textAppearance="@style/TextAppearance.Material3.LabelMedium"/>
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/textViewMaxWeight"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:padding="12dp"
+                                    android:background="@drawable/m3_outlined_background"
+                                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                                    android:gravity="center"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Hover Power (full width) -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Hover Power"
+                                android:textAppearance="@style/TextAppearance.Material3.LabelMedium"/>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/textViewHover"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:padding="12dp"
+                                android:background="@drawable/m3_outlined_background"
+                                android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                                android:gravity="center"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+    <!-- Modern Navigation Drawer -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:menu="@menu/drawer_menu"
+        app:headerLayout="@layout/nav_header"
+        app:itemTextAppearance="@style/TextAppearance.Material3.LabelLarge"
+        app:itemIconTint="?attr/colorOnSurfaceVariant"
+        app:itemTextColor="?attr/colorOnSurfaceVariant"
+        app:itemShapeAppearanceOverlay="@style/ShapeAppearance.Material3.MediumComponent"
+        style="@style/Widget.Material3.NavigationView"/>
+</androidx.drawerlayout.widget.DrawerLayout>
