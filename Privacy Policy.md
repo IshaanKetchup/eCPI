@@ -3,7 +3,7 @@
 **eCPI**  
 Effective Date: 2nd February 2025
 
-**eCPI** is a simple Collective Pitch Indicator (calculations) app that prioritizes your privacy. This app does **not** collect, store, use, transmit, or share any user data—**period**.
+**eCPI** is a simple Collective Pitch Indicator (calculator) app that prioritizes your privacy. This app does **not** collect, store, use, transmit, or share any user data—**period**.
 
 ## Key Points
 
@@ -27,4 +27,4 @@ Effective Date: 2nd February 2025
 If you have any questions, contact me at:  
 kshypishn@gmail.com
 
-That’s it. We keep it simple and transparent.
+That’s it. Simple and transparent.
